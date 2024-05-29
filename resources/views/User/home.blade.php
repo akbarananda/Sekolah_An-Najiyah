@@ -9,22 +9,23 @@
                 <div class="space-y-8">
 
                     <div>
-                        <h3 class="text-5xl leading-relaxed font-bold text-gray-700 dark:text-gray-300">
+                        <h3 class="text-5xl leading-relaxed font-bold text-gray-700 dark:text-gray-300" data-aos="fade-down-right" data-aos-duration="2000">
                             Kami Bantu <span class=" text-indigo-600">Wujudkan</span>
                             Impianmu
                         </h3>
-                        <p class="text-xl mt-10 leading-relaxed font-normal text-gray-500 dark:text-gray-300">
+                        <p class="text-xl mt-10 leading-relaxed font-normal text-gray-500 dark:text-gray-300" data-aos="fade-down-right" data-aos-duration="2000">
                             Tumbuhlah seperti pohon yang teguh, akarimu terbenam dalam ilmu, cabangmu menjulang tinggi
                             menuju cita-cita. Di setiap langkahmu, bersemangatlah untuk meraih keberhasilan, karena di balik
                             setiap usaha ada keberhasilan yang menanti. Bersama-sama kita ciptakan masa depan yang
                             gemilang!
                         </p>
-                        <div class="mt-10">
+                        <div class="mt-10" data-aos="fade-down-right" data-aos-duration="2000">
                             <button type="button"
                                 class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2">Daftar
                                 Sekarang →</button>
                         </div>
-                        <div class="mt-5">
+
+                        <div class="mt-5" data-aos="fade-up-right" data-aos-duration="2000">
                             <button type="button" data-twe-ripple-init data-twe-ripple-color="light"
                                 class="mb-2 inline-block rounded bg-[#1877f2] px-3 py-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg">
                                 <span class="[&>svg]:h-4 [&>svg]:w-4">
@@ -60,7 +61,8 @@
 
                 </div>
             </div>
-            <div class="flex items-center lg:justify-start ml-20 text-blue-500">
+
+            <div class="flex items-center lg:justify-start ml-20 text-blue-500" data-aos="fade-up-left" data-aos-duration="2000">
                 {/* <svg viewBox="0 0 753 480.951" xmlns="http://www.w3.org/2000/svg" class="w-full">
                     <path
                         d="M149.18 480.567l-2-.039a463.833 463.833 0 017.1-66.287c8.648-46.88 23.029-77.67 42.743-91.512l1.148 1.637C152.12 356.7 149.203 479.332 149.18 480.567zM174.18 480.089l-2-.04c.043-2.214 1.293-54.413 21.843-68.841l1.148 1.637c-19.72 13.845-20.981 66.711-20.991 67.244z"
@@ -109,7 +111,7 @@
 
     <div class="bg-white dark:text-gray-100 dark:bg-gray-900">
         <div class="space-y-16 container xl:max-w-7xl mx-auto px-4 py-16 lg:px-8 lg:py-32">
-            <div class="text-center">
+            <div class="text-center" data-aos="zoom-in-up" data-aos-duration="2000">
                 <h2 class="text-2xl font-black text-black dark:text-white">
                     Berita
                 </h2>
@@ -118,33 +120,42 @@
                 </div>
             </div>
 
-
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                            technology acquisitions 2021</h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                    <a href="#"
-                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Read more
-                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 5h12m0 0L9 1m4 4L9 9" />
-                        </svg>
-                    </a>
-                </div>
+            <div class="relative w-full flex gap-6 py-6 px-10 rounded-xl overflow-x-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-blue-300" data-aos="fade-right" data-aos-duration="2000">
+                @foreach ($berita as $item)
+                    <div class="inline-flex item-center">
+                        <div
+                            class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-72">
+                            <div
+                                class="relative h-56 mx-4 mt-3 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
+                                <img class="object-cover w-full h-full rounded-xl" src="{{ $item->image }}"
+                                    alt="card-image" />
+                            </div>
+                            <div class="p-6">
+                                <h5
+                                    class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                                    {{ $item->judul }}
+                                </h5>
+                                <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+                                    {{ $item->deskripsi }}
+                                </p>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <button
+                                    class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-blue-500 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                                    type="button">
+                                    Read More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
+
+
 
             <div class="bg-white dark:text-gray-100 dark:bg-gray-900">
                 <div class="space-y-16 container xl:max-w-7xl mx-auto px-4 py-16 lg:px-8 lg:py-32">
-                    <div class="text-center">
+                    <div class="text-center" data-aos="zoom-in-up" data-aos-duration="2000">
                         <h2 class="text-2xl font-black text-black dark:text-white">
                             Acara Sekolah Mendatang
                         </h2>
@@ -153,29 +164,41 @@
                         </div>
                     </div>
 
-                    <div
-                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#">
-                            <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
-                        </a>
-                        <div class="p-5">
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                                    technology acquisitions 2021</h5>
-                            </a>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                                technology
-                                acquisitions of 2021 so far, in reverse chronological order.</p>
-                            <a href="#"
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Read more
-                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                </svg>
-                            </a>
-                        </div>
+                    <div class="relative w-full flex gap-4 py-6 px-10 rounded-xl overflow-x-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-blue-300" data-aos="fade-left" data-aos-duration="2000">
+                        @foreach ($acara as $item)
+                            <div class="inline-flex item-center pr-3">
+                                <div
+                                    class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-72">
+                                    <div
+                                        class="relative h-56 mx-4 mt-3 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
+                                        <img class="object-cover w-full h-full rounded-xl" src="{{ $item->image }}"
+                                            alt="card-image" />
+                                    </div>
+                                    <div class="p-6">
+                                        <h5
+                                            class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                                            {{ $item->judul }}
+                                        </h5>
+                                        <p
+                                            class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+                                            {{ $item->deskripsi }}
+                                        </p>
+                                    </div>
+                                    <div class="p-6 pt-0">
+                                        <button
+                                            class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-blue-500 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                                            type="button">
+                                            Read More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
 
-                @endsection
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+@endsection

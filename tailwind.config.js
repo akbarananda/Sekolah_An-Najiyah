@@ -1,6 +1,6 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 import forms from "@tailwindcss/forms";
-
+const withMT = require("@material-tailwind/html/utils/withMT");
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -21,5 +21,5 @@ export default {
         },
     },
 
-    plugins: [forms, require("flowbite/plugin"),require("tw-elements/plugin.cjs"),require('preline/plugin')],
+    plugins: [forms, require("flowbite/plugin"),require("tw-elements/plugin.cjs"),require('preline/plugin'),require('tailwind-scrollbar')({ nocompatible: true }),],
 };

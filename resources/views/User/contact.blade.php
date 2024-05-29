@@ -3,6 +3,6 @@
     An-Najiyah
 @endsection
 @section('content')
-<div class=" mt-96">contact</div>
+<div class=" mt-96 mb-96">contact</div>
 
 @endsection

@@ -3,6 +3,6 @@
     An-Najiyah
 @endsection
 @section('content')
-<div class=" mt-96">service</div>
+<div class=" mt-96 mb-96">service</div>
 
 @endsection

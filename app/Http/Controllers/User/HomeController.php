@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Berita;
+use App\Models\Acara;
 
 class HomeController extends Controller
 {
@@ -12,7 +14,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('User/home');
+        $berita = Berita::all();
+        $acara = Acara::all();
+
+        return view('User/home', compact('berita','acara'));
     }
     public function about()
     {
@@ -25,6 +30,10 @@ class HomeController extends Controller
     public function contact()
     {
         return view('User/contact');
+    }
+    public function pendaftaran()
+    {
+        return view('User/pendaftaran');
     }
 
     /**
