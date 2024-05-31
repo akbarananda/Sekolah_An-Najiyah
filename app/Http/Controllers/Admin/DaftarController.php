@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Daftar;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class DaftarController extends Controller
 {
@@ -32,14 +34,14 @@ class DaftarController extends Controller
             'tgl_lahir' => 'required',
             'jk' => 'required',
             'almt_peserta' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         try {
             if ($request->hasFile('image')) {
                 $imageName = time() . '.' . $request->image->extension();
-                $request->image->move(public_path('images/pendaftaran/'), $imageName);
-                $imagePath = 'images/pendaftaran/' . $imageName;
+                $path = $request->file('image')->storeAs('public/pendaftaran', $imageName);
+                $imagePath = Storage::url($path);
             } else {
                 $imagePath = null;
             }
@@ -67,8 +69,13 @@ class DaftarController extends Controller
             ];
 
             $pdf = PDF::loadView('Admin.Pendaftaran.pdf', $pdfData);
-            return $pdf->download('Pendaftaran.pdf');
+            $pdfPath = 'pendaftaran_' . time() . '.pdf';
+            $pdf->save(storage_path('app/public/' . $pdfPath));
 
+            return redirect()->route('home.pendaftaran')->with([
+                'success' => 'Data successfully stored!',
+                'pdf_path' => $pdfPath
+            ]);
         } catch (\Exception $e) {
             Log::error('Error in store method: ' . $e->getMessage());
             return redirect()->back()->withErrors('There was an error while storing the data.');
@@ -78,7 +85,7 @@ class DaftarController extends Controller
     public function show($id)
     {
         $pendaftaran = Daftar::findOrFail($id);
-    return view('Admin/Pendaftaran/view', compact('pendaftaran'));
+        return view('Admin/Pendaftaran/view', compact('pendaftaran'));
     }
 
     public function edit($id)
@@ -95,11 +102,18 @@ class DaftarController extends Controller
     {
         $pendaftaran = Daftar::find($id);
 
-            if ($pendaftaran) {
-                $pendaftaran->delete();
-                return redirect()->route('admin.daftar.index')->with('success', 'Data has been deleted');
-            } else {
-        return redirect()->route('admin.daftar.index')->with('error', 'Data not found');
+        if ($pendaftaran) {
+            if ($pendaftaran->image) {
+                $imagePath = public_path($pendaftaran->image);
+                if (File::exists($imagePath)) {
+                    File::delete($imagePath);
+                }
+            }
+
+            $pendaftaran->delete();
+            return redirect()->route('admin.daftar.index')->with('success', 'Data has been deleted');
+        } else {
+            return redirect()->route('admin.daftar.index')->with('error', 'Data not found');
         }
     }
 }

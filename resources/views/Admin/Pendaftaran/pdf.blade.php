@@ -2,107 +2,75 @@
 <html>
 
 <head>
-    <title>Detail Pendaftaran Peserta Didik Baru</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Pendaftaran Peserta Didik Baru</title>
     <style>
-        @media print {
-            @page {
-                margin: 20px;
-            }
-
-            body {
-                margin: 20px;
-            }
+        body {
+            font-family: DejaVu Sans, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        .ttd {
-            position: relative;
+        .container {
+            padding: 20px;
+        }
+
+        .header {
             text-align: center;
+            margin-bottom: 20px;
         }
 
-        .ttd .tgl-surabaya {
-            position: absolute;
-            top: -30px;
-            left: 0;
-            right: 0;
-            margin: auto;
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            margin: 5px 0;
+        }
+
+        .image {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image img {
+            max-width: 200px;
+            height: auto;
         }
     </style>
 </head>
 
-<body class="font-sans text-sm p-4">
-    <div class="flex justify-center items-center">
-        <img src="{{ asset('assets/sma.png') }}" alt="Logo Sekolah" class="mr-4" style="max-width: 100px;">
-        <div class="text-center">
-            <h1 class="text-xl font-bold">YAYASAN AN-NAJIYAH</h1>
-            <h1 class="text-xl font-bold">SEKOLAH MENENGAH ATAS</h1>
-            <h1 class="text-xl font-bold">SMA AN-NAJIYAH</h1>
-            <p>JL. SIDOSERMO IV / 7, Sidosermo, Kec. Wonocolo, Kota Surabaya Prov. Jawa Timur</p>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Pendaftaran Peserta Didik Baru</h1>
         </div>
-    </div>
-    <div class="flex justify-center items-center mb-6">
-        <p class="text-xl font-bold">
-            ________________________________________________________________________________________________________________________________
-        </p>
-    </div>
-    <div class="flex justify-center items-center mb-6">
-        <h1 class="text-xl font-bold mb-10">DETAIL PENDAFTARAN SISWA</h1>
-    </div>
-    <div class="flex justify-center">
-        <table class="w-full max-w-3xl text-base">
-            <tr class="bg-gray-100">
-                <th class="p-2 text-left">Tahun Ajaran</th>
-                <td class="p-2">{{ $pendaftaran->th_ajaran }}</td>
-            </tr>
-            <tr>
-                <th class="p-2 text-left">Tanggal Daftar</th>
-                <td class="p-2">{{ $pendaftaran->tgl_daftar }}</td>
-            </tr>
-            <tr class="bg-gray-100">
-                <th class="p-2 text-left">Nama Lengkap Siswa</th>
-                <td class="p-2">{{ $pendaftaran->nm_peserta }}</td>
-            </tr>
-            <tr>
-                <th class="p-2 text-left">Jenis Kelamin</th>
-                <td class="p-2">{{ $pendaftaran->jk }}</td>
-            </tr>
-            <tr class="bg-gray-100">
-                <th class="p-2 text-left">Tempat Lahir</th>
-                <td class="p-2">{{ $pendaftaran->tmp_lahir }}</td>
-            </tr>
-            <tr>
-                <th class="p-2 text-left">Tanggal Lahir</th>
-                <td class="p-2">{{ $pendaftaran->tgl_lahir }}</td>
-            </tr>
-            <tr class="bg-gray-100">
-                <th class="p-2 text-left">Alamat</th>
-                <td class="p-2">{{ $pendaftaran->almt_peserta }}</td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="flex justify-center mt-10 mr-40">
-        <div class="text-center font-normal text-base">
-            <p>Demikian data diri kami sampaikan untuk dapat dipergunakan sebagaimana mestinya</p>
+        <div class="section">
+            <h2>Detail Pendaftaran</h2>
+            <p><strong>Tanggal Daftar:</strong> {{ $tgl_daftar }}</p>
+            <p><strong>Tahun Ajaran:</strong> {{ $th_ajaran }}</p>
+            <p><strong>Nama Peserta:</strong> {{ $nm_peserta }}</p>
+            <p><strong>Tempat Lahir:</strong> {{ $tmp_lahir }}</p>
+            <p><strong>Tanggal Lahir:</strong> {{ $tgl_lahir }}</p>
+            <p><strong>Jenis Kelamin:</strong> {{ $jk }}</p>
+            <p><strong>Alamat:</strong> {{ $almt_peserta }}</p>
         </div>
-    </div>
-
-    <div class="mt-60 flex justify-center">
-        <div class="ttd">
-            <p class=" ml-96 font-semibold">Surabaya, {{ $pendaftaran->tgl_daftar }}</p>
-            <div class="flex justify-end mt-8">
-                <div class="text-center font-semibold text-base mr-96">
-                    <p>Wali Siswa</p>
-                    <br><br><br>
-                    <p>______________________</p>
-                </div>
-                <div class="text-center text-base font-semibold">
-                    <p>Calon Siswa</p>
-                    <br><br><br>
-                    <p>______________________</p>
-                </div>
+        @if ($image)
+            <div class="image">
+                <h2>Foto Peserta</h2>
+                <img src="{{ public_path($image) }}" alt="Foto Peserta">
             </div>
-        </div>
+        @endif
     </div>
 </body>
 
