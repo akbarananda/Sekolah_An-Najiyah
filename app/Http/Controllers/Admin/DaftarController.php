@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Daftar;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Log;
 
 class DaftarController extends Controller
 {
@@ -42,7 +44,7 @@ class DaftarController extends Controller
                 $imagePath = null;
             }
 
-            Daftar::create([
+            $data = Daftar::create([
                 'tgl_daftar' => $request->tgl_daftar,
                 'th_ajaran' => $request->th_ajaran,
                 'nm_peserta' => $request->nm_peserta,
@@ -53,7 +55,20 @@ class DaftarController extends Controller
                 'image' => $imagePath,
             ]);
 
-            return redirect()->route('home.index')->with('success', 'Data created successfully.');
+            $pdfData = [
+                'tgl_daftar' => $data->tgl_daftar,
+                'th_ajaran' => $data->th_ajaran,
+                'nm_peserta' => $data->nm_peserta,
+                'tmp_lahir' => $data->tmp_lahir,
+                'tgl_lahir' => $data->tgl_lahir,
+                'jk' => $data->jk,
+                'almt_peserta' => $data->almt_peserta,
+                'image' => $data->image,
+            ];
+
+            $pdf = PDF::loadView('Admin.Pendaftaran.pdf', $pdfData);
+            return $pdf->download('Pendaftaran.pdf');
+
         } catch (\Exception $e) {
             Log::error('Error in store method: ' . $e->getMessage());
             return redirect()->back()->withErrors('There was an error while storing the data.');
@@ -78,6 +93,13 @@ class DaftarController extends Controller
 
     public function destroy($id)
     {
-        // Delete a user
+        $pendaftaran = Daftar::find($id);
+
+            if ($pendaftaran) {
+                $pendaftaran->delete();
+                return redirect()->route('admin.daftar.index')->with('success', 'Data has been deleted');
+            } else {
+        return redirect()->route('admin.daftar.index')->with('error', 'Data not found');
+        }
     }
 }

@@ -62,6 +62,13 @@ class AcaraController extends Controller
 
     public function destroy($id)
     {
-        // Delete a user
+        $acara = Acara::find($id);
+
+            if ($acara) {
+                $acara->delete();
+                return redirect()->route('admin.acara.index')->with('success', 'Data has been deleted');
+            } else {
+        return redirect()->route('admin.acara.index')->with('error', 'Data not found');
+        }
     }
 }

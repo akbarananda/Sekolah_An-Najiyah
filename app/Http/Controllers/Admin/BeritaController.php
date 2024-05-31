@@ -63,6 +63,13 @@ class BeritaController extends Controller
 
     public function destroy($id)
     {
-        // Delete a user
+        $berita = Berita::find($id);
+
+            if ($berita) {
+                $berita->delete();
+                return redirect()->route('admin.berita.index')->with('success', 'Data has been deleted');
+            } else {
+        return redirect()->route('admin.berita.index')->with('error', 'Data not found');
+        }
     }
 }

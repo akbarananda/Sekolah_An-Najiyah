@@ -4,6 +4,8 @@
     <div class="mt-16 flex">
         <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             href="{{ route('admin.daftar.index') }}">Back to List</a>
+        {{-- <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            href="{{ route('admin.download') }}">Download PDF</a> --}}
     </div>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -76,7 +78,8 @@
                     </td>
                     <td class="flex items-center justify-center px-6 py-4">
                         @if ($pendaftaran->image)
-                            <img src="{{ asset($pendaftaran->image) }}" alt="{{ $pendaftaran->judul }}" style="max-width: 5%;">
+                            <img src="{{ asset($pendaftaran->image) }}" alt="{{ $pendaftaran->judul }}"
+                                style="max-width: 5%;">
                         @endif
                     </td>
                 </tr>

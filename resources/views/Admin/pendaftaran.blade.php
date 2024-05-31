@@ -52,7 +52,7 @@
                                 href="{{ route('admin.daftar.show', $item->id) }}">Lihat</a>
                             {{-- <a class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
                                 href="{{ route('admin.berita.edit', $item->id) }}">Edit</a> --}}
-                            <form action="{{ route('admin.berita.destroy', $item->id) }}" method="POST"
+                            <form action="{{ route('admin.daftar.destroy', $item->id) }}" method="POST"
                                 style="display:inline;">
                                 @csrf
                                 @method('DELETE')

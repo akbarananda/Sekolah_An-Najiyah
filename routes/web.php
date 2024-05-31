@@ -18,6 +18,8 @@ Route::resource('/admin/berita', BeritaController::class)->names('admin.berita')
 Route::resource('/admin/daftar', DaftarController::class)->names('admin.daftar');
 Route::resource('/admin/acara', AcaraController::class)->names('admin.acara');
 Route::resource('/daftar', DaftarController::class)->names('daftar');
+Route::get('/download-pdf', [DaftarController::class, 'downloadPdf'])->name('admin.download');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
