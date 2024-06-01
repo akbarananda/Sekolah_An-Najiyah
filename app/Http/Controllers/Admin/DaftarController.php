@@ -18,7 +18,6 @@ class DaftarController extends Controller
         return view('Admin/pendaftaran', compact('pendaftaran'));
     }
 
-
     public function create()
     {
         // return view('Admin/Berita/create');
@@ -40,8 +39,7 @@ class DaftarController extends Controller
         try {
             if ($request->hasFile('image')) {
                 $imageName = time() . '.' . $request->image->extension();
-                $path = $request->file('image')->storeAs('public/pendaftaran', $imageName);
-                $imagePath = Storage::url($path);
+                $imagePath = $request->file('image')->storeAs('public/pendaftaran', $imageName);
             } else {
                 $imagePath = null;
             }
@@ -65,16 +63,21 @@ class DaftarController extends Controller
                 'tgl_lahir' => $data->tgl_lahir,
                 'jk' => $data->jk,
                 'almt_peserta' => $data->almt_peserta,
-                'image' => $data->image,
+                'image' => $imagePath ? storage_path('app/' . $imagePath) : null, // Path untuk gambar
+                'logo' => public_path('assets/sma.png'), // Path ke gambar logo
             ];
 
-            $pdf = PDF::loadView('Admin.Pendaftaran.pdf', $pdfData);
-            $pdfPath = 'pendaftaran_' . time() . '.pdf';
-            $pdf->save(storage_path('app/public/' . $pdfPath));
+            $pdf = PDF::loadView('Admin.Pendaftaran.pdf', $pdfData)->setPaper('A4', 'portrait');
+            $pdfFileName = 'pendaftaran_' . time() . '.pdf';
+            $pdfPath = 'public/pendaftaran/' . $pdfFileName; // Path penyimpanan PDF di storage/public
+            $pdf->save(storage_path('app/' . $pdfPath)); // Simpan PDF di storage
+
+            // Buat URL untuk file PDF
+            $pdfUrl = Storage::url($pdfPath);
 
             return redirect()->route('home.pendaftaran')->with([
                 'success' => 'Data successfully stored!',
-                'pdf_path' => $pdfPath
+                'pdf_path' => $pdfUrl,
             ]);
         } catch (\Exception $e) {
             Log::error('Error in store method: ' . $e->getMessage());
@@ -104,7 +107,7 @@ class DaftarController extends Controller
 
         if ($pendaftaran) {
             if ($pendaftaran->image) {
-                $imagePath = public_path($pendaftaran->image);
+                $imagePath = public_path('storage/' . $pendaftaran->image);
                 if (File::exists($imagePath)) {
                     File::delete($imagePath);
                 }
