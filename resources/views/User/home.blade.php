@@ -9,11 +9,13 @@
                 <div class="space-y-8">
 
                     <div>
-                        <h3 class="text-5xl leading-relaxed font-bold text-gray-700 dark:text-gray-300" data-aos="fade-down-right" data-aos-duration="2000">
+                        <h3 class="text-5xl leading-relaxed font-bold text-gray-700 dark:text-gray-300"
+                            data-aos="fade-down-right" data-aos-duration="2000">
                             Kami Bantu <span class=" text-indigo-600">Wujudkan</span>
                             Impianmu
                         </h3>
-                        <p class="text-xl mt-10 leading-relaxed font-normal text-gray-500 dark:text-gray-300" data-aos="fade-down-right" data-aos-duration="2000">
+                        <p class="text-xl mt-10 leading-relaxed font-normal text-gray-500 dark:text-gray-300"
+                            data-aos="fade-down-right" data-aos-duration="2000">
                             Tumbuhlah seperti pohon yang teguh, akarimu terbenam dalam ilmu, cabangmu menjulang tinggi
                             menuju cita-cita. Di setiap langkahmu, bersemangatlah untuk meraih keberhasilan, karena di balik
                             setiap usaha ada keberhasilan yang menanti. Bersama-sama kita ciptakan masa depan yang
@@ -62,7 +64,8 @@
                 </div>
             </div>
 
-            <div class="flex items-center lg:justify-start ml-20 text-blue-500" data-aos="fade-up-left" data-aos-duration="2000">
+            <div class="flex items-center lg:justify-start ml-20 text-blue-500" data-aos="fade-up-left"
+                data-aos-duration="2000">
                 {/* <svg viewBox="0 0 753 480.951" xmlns="http://www.w3.org/2000/svg" class="w-full">
                     <path
                         d="M149.18 480.567l-2-.039a463.833 463.833 0 017.1-66.287c8.648-46.88 23.029-77.67 42.743-91.512l1.148 1.637C152.12 356.7 149.203 479.332 149.18 480.567zM174.18 480.089l-2-.04c.043-2.214 1.293-54.413 21.843-68.841l1.148 1.637c-19.72 13.845-20.981 66.711-20.991 67.244z"
@@ -120,7 +123,8 @@
                 </div>
             </div>
 
-            <div class="relative w-full flex gap-6 py-6 px-10 rounded-xl overflow-x-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-blue-300" data-aos="fade-right" data-aos-duration="2000">
+            <div class="relative w-full flex gap-6 py-6 px-10 rounded-xl overflow-x-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-blue-300"
+                data-aos="fade-right" data-aos-duration="2000">
                 @foreach ($berita as $item)
                     <div class="inline-flex item-center">
                         <div
@@ -140,11 +144,10 @@
                                 </p>
                             </div>
                             <div class="p-6 pt-0">
-                                <button
-                                    class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-blue-500 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
-                                    type="button">
+                                <a class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-blue-500 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                                    type="button" href="{{ route('home.readmoreBerita', $item->id) }}">
                                     Read More
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -164,9 +167,10 @@
                         </div>
                     </div>
 
-                    <div class="relative w-full flex gap-4 py-6 px-10 rounded-xl overflow-x-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-blue-300" data-aos="fade-left" data-aos-duration="2000">
+                    <div class="relative w-full flex gap-6 py-6 px-10 rounded-xl overflow-x-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-blue-300"
+                        data-aos="fade-right" data-aos-duration="2000">
                         @foreach ($acara as $item)
-                            <div class="inline-flex item-center pr-3">
+                            <div class="inline-flex item-center">
                                 <div
                                     class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-72">
                                     <div
@@ -185,11 +189,10 @@
                                         </p>
                                     </div>
                                     <div class="p-6 pt-0">
-                                        <button
-                                            class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-blue-500 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
-                                            type="button">
+                                        <a class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-blue-500 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                                            type="button" href="/readmore-acara">
                                             Read More
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

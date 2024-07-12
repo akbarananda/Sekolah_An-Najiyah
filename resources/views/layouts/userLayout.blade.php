@@ -12,7 +12,7 @@
 
 <body>
     <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4" data-aos="zoom-in" data-aos-easing="ease-in" data-aos-duration="2000">
+        <div class="flex flex-wrap items-center justify-between mx-auto p-4" data-aos="zoom-in" data-aos-easing="ease-in" data-aos-duration="2000">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src={{ asset('assets/sma.png') }} class="h-8" alt="Flowbite Logo">
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">AN-NAJIYAH</span>
@@ -60,7 +60,7 @@
     @yield('content')
 
     <footer class="bg-white dark:bg-gray-900" data-aos="fade-down" data-aos-duration="2000">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div class="mx-auto w-full p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <a href="https://flowbite.com/" class="flex items-center">

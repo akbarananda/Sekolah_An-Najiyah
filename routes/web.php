@@ -13,6 +13,8 @@ Route::get('/about', [HomeController::class, 'about'])->name('home.about');
 Route::get('/service', [HomeController::class, 'service'])->name('home.service');
 Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
 Route::get('/pendaftaran', [HomeController::class, 'pendaftaran'])->name('home.pendaftaran');
+Route::get('/readmore-berita', [HomeController::class, 'readmoreBerita'])->name('home.readmoreBerita');
+Route::get('/readmore-acara', [HomeController::class, 'readmoreAcara'])->name('home.readmoreAcara');
 
 Route::resource('/admin/berita', BeritaController::class)->names('admin.berita');
 Route::resource('/admin/daftar', DaftarController::class)->names('admin.daftar');
