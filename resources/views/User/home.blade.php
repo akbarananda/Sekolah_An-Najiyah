@@ -10,24 +10,24 @@
 
                     <div>
                         <h3 class="text-5xl leading-relaxed font-bold text-gray-700 dark:text-gray-300"
-                            data-aos="fade-down-right" data-aos-duration="2000">
+                            data-aos="fade-right" data-aos-duration="2000">
                             Kami Bantu <span class=" text-indigo-600">Wujudkan</span>
                             Impianmu
                         </h3>
                         <p class="text-xl mt-10 leading-relaxed font-normal text-gray-500 dark:text-gray-300"
-                            data-aos="fade-down-right" data-aos-duration="2000">
+                            data-aos="fade-left" data-aos-duration="2000">
                             Tumbuhlah seperti pohon yang teguh, akarimu terbenam dalam ilmu, cabangmu menjulang tinggi
                             menuju cita-cita. Di setiap langkahmu, bersemangatlah untuk meraih keberhasilan, karena di balik
                             setiap usaha ada keberhasilan yang menanti. Bersama-sama kita ciptakan masa depan yang
                             gemilang!
                         </p>
-                        <div class="mt-10" data-aos="fade-down-right" data-aos-duration="2000">
+                        <div class="mt-10" data-aos="zoom-in" data-aos-duration="2000">
                             <a type="button" href="/pendaftaran"
                                 class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2">Daftar
                                 Sekarang →</a>
                         </div>
 
-                        <div class="mt-5" data-aos="fade-up-right" data-aos-duration="2000">
+                        <div class="mt-5" data-aos="zoom-in" data-aos-duration="2000">
                             <button type="button" data-twe-ripple-init data-twe-ripple-color="light"
                                 class="mb-2 inline-block rounded bg-[#1877f2] px-3 py-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg">
                                 <span class="[&>svg]:h-4 [&>svg]:w-4">

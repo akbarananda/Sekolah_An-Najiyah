@@ -76,7 +76,7 @@
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('admin.dashboard.index') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group @if (Request::is('dashboard')) bg-gray-200 dark:bg-gray-700 @endif">
                         <?xml version="1.0" ?><svg height="24px" version="1.1" viewBox="0 0 48 48" width="24px"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

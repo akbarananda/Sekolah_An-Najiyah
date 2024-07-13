@@ -1,57 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\acara;
 use App\Models\Berita;
-use App\Models\Acara;
+use App\Models\Daftar;
+use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $berita = Berita::all();
-        $acara = Acara::all();
+        $pendaftarCount = Daftar::count();
+        $beritaCount = Berita::count();
+        $acaraCount = acara::count();
 
-        return view('User/home', compact('berita', 'acara'));
-    }
-    public function about()
-    {
-        return view('User/about');
-    }
-    public function service()
-    {
-        return view('User/service');
-    }
-    public function contact()
-    {
-        return view('User/contact');
-    }
-    public function pendaftaran()
-    {
-        return view('User/pendaftaran');
-    }
-    public function readmoreBerita($id)
-    {
-        $berita = Berita::find($id);
-
-        if (!$berita) {
-            abort(404, 'Berita not found');
-        }
-
-        return view('User.readmoreBerita', compact('berita'));
-    }
-    public function readmoreAcara()
-    {
-        $acara = Acara::all();
-
-        return view('User/readmoreAcara', compact('acara'));
+        return view('dashboard', compact('pendaftarCount', 'beritaCount', 'acaraCount'));
     }
 
+    public function redirect(){
+        return redirect()->route('admin.dashboard.index');
+    }
     /**
      * Show the form for creating a new resource.
      */

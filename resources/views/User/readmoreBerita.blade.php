@@ -6,20 +6,20 @@
 
 @section('content')
     <div class="my-20">
-        @foreach ($berita as $item)
+        {{-- @foreach ($berita as $berita) --}}
             <div
                 class="flex justify-center items-center mx-4 mt-3 overflow-hidden text-white rounded">
-                <img class="object-cover w-full h-auto" src="{{ $item->image }}" alt="{{ $item->judul }}">
+                <img class="object-cover w-full h-auto" src="{{ asset($berita->image) }}" alt="{{ $berita->judul }}">
             </div>
             <div class="flex flex-col mt-10 justify-center items-center">
                 <h5
                     class="flex mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                    {{ $item->judul }}
+                    {{ $berita->judul }}
                 </h5>
                 <p class="flex font-sans text-base antialiased font-light leading-relaxed text-inherit">
-                    {{ $item->deskripsi }}
+                    {{ $berita->deskripsi }}
                 </p>
             </div>
-        @endforeach
+        {{-- @endforeach --}}
     </div>
 @endsection

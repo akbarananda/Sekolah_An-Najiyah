@@ -58,7 +58,7 @@ class BeritaController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Update user information
+
     }
 
     public function destroy($id)

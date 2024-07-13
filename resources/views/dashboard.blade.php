@@ -3,11 +3,11 @@
 @section('content')
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-20 ml-5">
         <div>
-            <a href="#"
+            <a href="{{ route('daftar.index') }}"
                 class="flex items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <div
                     class="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center text-3xl font-bold text-gray-800">
-                    100
+                    {{ $pendaftarCount }}
                 </div>
                 <div class="ml-4">
                     <h3 class="text-xl font-semibold mb-2">Pendaftar</h3>
@@ -17,11 +17,11 @@
         </div>
 
         <div>
-            <a href="#"
+            <a href="{{ route('admin.berita.index') }}"
                 class="flex items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <div
                     class="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center text-3xl font-bold text-gray-800">
-                    100
+                    {{ $beritaCount }}
                 </div>
                 <div class="ml-4">
                     <h3 class="text-xl font-semibold mb-2">Berita</h3>
@@ -31,11 +31,11 @@
         </div>
 
         <div>
-            <a href="#"
+            <a href="{{ route('admin.acara.index') }}"
                 class="flex items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <div
                     class="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center text-3xl font-bold text-gray-800">
-                    100
+                    {{ $acaraCount }}
                 </div>
                 <div class="ml-4">
                     <h3 class="text-xl font-semibold mb-2">Acara</h3>
