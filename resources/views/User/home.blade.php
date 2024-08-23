@@ -9,8 +9,8 @@
                 <div class="space-y-8">
 
                     <div>
-                        <h3 class="text-5xl leading-relaxed font-bold text-gray-700 dark:text-gray-300"
-                            data-aos="fade-right" data-aos-duration="2000">
+                        <h3 class="text-5xl leading-relaxed font-bold text-gray-700 dark:text-gray-300" data-aos="fade-right"
+                            data-aos-duration="2000">
                             Kami Bantu <span class=" text-indigo-600">Wujudkan</span>
                             Impianmu
                         </h3>
@@ -48,16 +48,19 @@
                                     </svg>
                                 </span>
                             </button>
-                            <button type="button" data-twe-ripple-init data-twe-ripple-color="light"
-                                class="mb-2 inline-block rounded bg-black px-3 py-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg">
-                                <span class="[&>svg]:h-4 [&>svg]:w-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512">
-                                        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                                        <path
-                                            d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-                                    </svg>
-                                </span>
-                            </button>
+                            <a href="https://www.tiktok.com/@kampusitats?is_from_webapp=1&sender_device=pc" target="_blank">
+                                <!-- TikTok -->
+                                <button type="button" data-twe-ripple-init data-twe-ripple-color="light"
+                                    class="mb-2 inline-block rounded bg-[#000000] px-3 py-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg">
+                                    <span class="[&>svg]:h-4 [&>svg]:w-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
+                                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                                            <path
+                                                d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
+                                        </svg>
+                                    </span>
+                                </button>
+                            </a>
                         </div>
                     </div>
 
