@@ -53,11 +53,38 @@ class AcaraController extends Controller
     public function edit($id)
     {
         // Edit a single user
+        $acara = Acara::findOrFail($id);
+    return view('Admin/Acara/edit', compact('acara'));
     }
 
     public function update(Request $request, $id)
     {
         // Update user information
+        $request->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    
+        $acara = Acara::findOrFail($id);
+    
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            if ($acara->image && file_exists(public_path($acara->image))) {
+                unlink(public_path($acara->image));
+            }
+    
+            // Upload gambar baru
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $acara->image = 'images/' . $imageName;
+        }
+    
+        $acara->judul = $request->judul;
+        $acara->deskripsi = $request->deskripsi;
+        $acara->save();
+    
+        return redirect()->route('admin.acara.index')->with('success', 'Event updated successfully.');
     }
 
     public function destroy($id)

@@ -54,10 +54,36 @@ class BeritaController extends Controller
     public function edit($id)
     {
         // Edit a single user
+        $berita = Berita::findOrFail($id);
+    return view('Admin/Berita/edit', compact('berita'));
     }
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    
+        $berita = Berita::findOrFail($id);
+    
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            if ($berita->image && file_exists(public_path($berita->image))) {
+                unlink(public_path($berita->image));
+            }
+            // Upload gambar baru
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+        $berita->image = 'images/' . $imageName;
+    }
+
+    $berita->judul = $request->judul;
+    $berita->deskripsi = $request->deskripsi;
+    $berita->save();
+
+    return redirect()->route('admin.berita.index')->with('success', 'News updated successfully.');
 
     }
 

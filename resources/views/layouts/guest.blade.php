@@ -19,8 +19,8 @@
             <div>
                 <a href="/">
                     {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
-                    <img src="{{ asset('assets/sma.png') }}" alt="" class=" w-30 h-30 fill-current">
-                    <h1 class="flex mt-5 ml-20 text-center font-extrabold text-2xl">LOGIN</h1>
+                    <img src="{{ asset('assets/sma.png') }}" alt="" class="w-30 h-30 fill-current">
+                    <h1 class="flex mt-5 ml-56 text-center font-extrabold text-2xl">LOGIN</h1>
                 </a>
             </div>
 
